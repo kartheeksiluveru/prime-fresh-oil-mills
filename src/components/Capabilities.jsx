@@ -15,11 +15,6 @@ export default function Capabilities() {
           <div>
             <p className="kicker">{COMPANY.millCode}</p>
             <h2>A Sitapura mill built for contract volumes.</h2>
-            <p>
-              {COMPANY.legalName} operates from {COMPANY.location}. Licensed {COMPANY.iso},
-              FSSAI {COMPANY.fssai}. Crush, refine, fill, and tanker out under one quality
-              desk.
-            </p>
           </div>
         </div>
         <div className="stats">

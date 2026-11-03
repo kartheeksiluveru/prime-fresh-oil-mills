@@ -687,8 +687,8 @@ h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); max-width: 760px; }
 .capabilities-section .section-head h2 { max-width: 720px; color: #154734; font-size: clamp(2.5rem, 5vw, 4.5rem); }
 .capabilities-section .section-head p:not(.kicker) { max-width: 820px; color: #675f59; font-size: 1.12rem; }
 .capabilities-section .stats { position: relative; z-index: 2; }
-.capabilities-section .stat { min-height: 160px; display: flex; flex-direction: column; justify-content: center; border-radius: 28px; background: rgba(255,255,255,.68); border: 1px solid rgba(255,255,255,.86); box-shadow: 0 22px 60px rgba(107,87,74,.12), inset 0 1px 0 rgba(255,255,255,.95); backdrop-filter: blur(18px) saturate(120%); }
-.capabilities-section .stat b { color: #16713d; font-size: clamp(2.4rem, 4vw, 3.7rem); }
+.capabilities-section .stat { min-height: 130px; padding: 18px 22px; display: flex; flex-direction: column; justify-content: center; border-radius: 24px; background: rgba(255,255,255,.68); border: 1px solid rgba(255,255,255,.86); box-shadow: 0 18px 48px rgba(107,87,74,.11), inset 0 1px 0 rgba(255,255,255,.95); backdrop-filter: blur(18px) saturate(120%); }
+.capabilities-section .stat b { color: #16713d; font-size: clamp(2rem, 3.5vw, 3.15rem); }
 @media (max-width: 760px) { .seed-process-wrap { grid-template-columns: 1fr; gap: 24px; } .seed-process-frame { min-height: 230px; aspect-ratio: 16 / 9; } .seed-process-frame iframe { min-height: 230px; } }
 @media (max-width: 960px) { .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .site-header { top: 8px; } .catalog-grid { grid-template-columns: 1fr; } .brand span { font-size: .68rem; } }
