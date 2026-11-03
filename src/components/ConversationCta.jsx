@@ -20,7 +20,6 @@ export default function ConversationCta() {
         <div className="conversation-copy">
           <p className="kicker">Wholesale partnerships / Commercial desk</p>
           <h2 id="conversation-title">Ready for your <em>next bulk dispatch?</em></h2>
-          <p>Tell us what your brand needs. We’ll shape the right oil, pack format, and dispatch route with you.</p>
           <div className="conversation-meta"><span>Mill-gate pricing</span><span>CoA-ready batches</span><span>Pan-India dispatch</span></div>
         </div>
         <div className={`conversation-drawer-wrap ${isOpen ? "open" : ""}`}>
