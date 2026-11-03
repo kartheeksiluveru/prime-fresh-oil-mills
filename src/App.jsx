@@ -3,6 +3,7 @@ import ByProducts from "./components/ByProducts.jsx";
 import ContractManufacturing from "./components/ContractManufacturing.jsx";
 import Capabilities from "./components/Capabilities.jsx";
 import Catalog from "./components/Catalog.jsx";
+import ConversationCta from "./components/ConversationCta.jsx";
 import Footer from "./components/Footer.jsx";
 import Hero from "./components/Hero.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -45,6 +46,7 @@ export default function App() {
           onProceed={proceedToRfq}
         />
         <RfqWizard quote={quote} onQuoteChange={setQuote} />
+        <ConversationCta />
       </main>
       <Footer />
       <SpecModal productId={specId} onClose={closeSpecs} />
