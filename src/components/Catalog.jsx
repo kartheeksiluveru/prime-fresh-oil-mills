@@ -36,8 +36,7 @@ export default function Catalog({ onOpenSpecs }) {
                     <img className="product-image" src={product.image} alt={`${product.name} oil and source ingredients`} loading="lazy" />
                   </div>
                   <div className="badge-row">
-                    {product.isHero ? <span className="badge hero">Hero crush</span> : null}
-                    <span className="badge grade">{product.grade ?? "Mill grade"}</span>
+                      <span className="badge grade">{product.grade ?? "Mill grade"}</span>
                   </div>
                   <h3>{product.name}</h3>
                   <p className="muted">{product.tagline}</p>
