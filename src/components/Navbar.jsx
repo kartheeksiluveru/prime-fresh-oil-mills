@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const LINKS = [
   { href: "#catalog", label: "Catalog" },
   { href: "#quote", label: "Bulk Quote" },
-  { href: "#rfq", label: "RFQ" },
+  { href: "#contract-manufacturing", label: "Contract Manufacturing" },
 ];
 
 export default function Navbar() {
@@ -44,8 +44,8 @@ export default function Navbar() {
       </div>
       <div className="wrap nav-row">
         <a className="brand" href="#top" onClick={close}>
-          Prime Fresh Oil Mills
-          <span>B2B vegetable oils</span>
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Prime_Fresh_Oil_Mills_Original_Logo-aQfInHew7r22vP03SkFGFCuQS27XDf.jpg" alt="Prime Fresh Oil Mills logo" />
+          <span>Prime Fresh Oil Mills</span>
         </a>
         <button
           className="menu-toggle"
@@ -64,9 +64,7 @@ export default function Navbar() {
               </a>
             ) : null
           )}
-          <a className="nav-cta" href="#rfq" onClick={close}>
-            Request quote
-          </a>
+          <a className="nav-cta" href="#quote" onClick={close}>Request Quote <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </header>

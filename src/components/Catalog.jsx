@@ -1,8 +1,4 @@
-import {
-  formatInr,
-  getProducts,
-  listPackaging,
-} from "../utils/oilData";
+import { formatInr, getProducts } from "../utils/oilData";
 
 export default function Catalog({ onOpenSpecs }) {
   const products = getProducts();
@@ -29,15 +25,18 @@ export default function Catalog({ onOpenSpecs }) {
           ) : (
             (products ?? []).map((product) => {
               if (!product?.id) return null;
-              const packs = listPackaging(product);
               return (
                 <article className="product-card" key={product.id}>
-                  <div className="badge-row">
-                    {product.isHero ? <span className="badge hero">Hero crush</span> : null}
-                    <span className="badge grade">{product.grade ?? "Mill grade"}</span>
+                  <div className="product-image-wrap">
+                    <img className="product-image" src={product.image} alt={`${product.name} oil and source ingredients`} loading="lazy" />
                   </div>
-                  <h3>{product.name}</h3>
-                  <p className="muted">{product.tagline}</p>
+                  <div className="badge-row">
+                      <span className="badge grade">{product.grade ?? "Mill grade"}</span>
+                  </div>
+                  <div className="catalog-title-row">
+                    <h3>{product.name}</h3>
+                    <p className="price">{formatInr(product.basePricePerLiter)} / L</p>
+                  </div>
                   <dl className="spec-list">
                     <div>
                       <dt>Purity %</dt>
@@ -56,15 +55,6 @@ export default function Catalog({ onOpenSpecs }) {
                       <dd>{product.specificGravity30C ?? "—"}</dd>
                     </div>
                   </dl>
-                  <p className="price">
-                    {formatInr(product.basePricePerLiter)} / L
-                    <span>MOQ {product.moqLiters ?? 500} L · SKU {product.sku}</span>
-                  </p>
-                  <div className="pack-pills">
-                    {(packs ?? []).map((item) =>
-                      item?.id ? <span key={item.id}>{item.label}</span> : null
-                    )}
-                  </div>
                   <button
                     className="btn btn-primary"
                     type="button"

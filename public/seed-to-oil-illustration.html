@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seed to Oil: 4-panel worker illustration</title>
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0;background:#FDFCF8}
+body{min-height:100vh;display:grid;place-items:center;padding:12px;font-family:ui-rounded,"Nunito","Trebuchet MS",sans-serif}
+.stage{width:min(100%,calc((100vh - 24px)*16/9),1920px);aspect-ratio:16/9;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1.2%}
+.panel{border-radius:22px;overflow:hidden;border:2.5px solid #6B574A;min-height:0}
+.panel svg{display:block;width:100%;height:100%}
+.p1{background:#F3EBDD}.p2{background:#E4EEE0}.p3{background:#F9E3DC}.p4{background:#FBEFC9}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-3px)}}
+.fl{animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+.eye{animation:blink 4s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes blink{95%,100%{transform:scaleY(.1)}}
+.spin{animation:spin 7s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.drop{animation:drop 1.3s ease-in infinite}
+@keyframes drop{0%{transform:translateY(0);opacity:1}85%{transform:translateY(16px);opacity:1}100%{transform:translateY(16px);opacity:0}}
+.bar{transform-box:fill-box;transform-origin:bottom;animation:grow 2.4s ease-in-out infinite alternate}
+@keyframes grow{from{transform:scaleY(.45)}to{transform:scaleY(1)}}
+.tw{animation:tw 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes tw{50%{transform:scale(.4);opacity:.4}}
+.thumb{animation:thumb 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom}
+@keyframes thumb{50%{transform:rotate(-12deg)}}
+.oil{animation:oil 3s ease-in-out infinite alternate}
+@keyframes oil{to{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<filter id="sk" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence id="t" type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="1"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+<pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#6B574A" stroke-width="1" opacity=".18"/></pattern>
+</defs>
+</svg>
+
+<main class="stage" id="stage" aria-label="Four-panel illustration of a friendly worker turning golden seeds into pure oil"></main>
+
+<script>
+const O='#6B574A',SAGE='#A9C5A0',SAGE2='#8FB08A',CORAL='#F4A59A',CORAL2='#F08F85',GOLD='#E9B93C',SEED='#EBC866',SKIN='#F5CFAE',STONE='#CDBFAE',STONE2='#B8A99A';
+const st=(w=2.5)=>`stroke="${O}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"`;
+const A=d=>`<path d="${d}" fill="none" stroke="${O}" stroke-width="20" stroke-linecap="round"/><path d="${d}" fill="none" stroke="${SAGE}" stroke-width="15" stroke-linecap="round"/>`;
+const H=(x,y,r=8)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${SKIN}" ${st()}/>`;
+const seed=(x,y,r=0)=>`<ellipse cx="${x}" cy="${y}" rx="4.5" ry="3" transform="rotate(${r} ${x} ${y})" fill="${SEED}" ${st(1.6)}/>`;
+const spark=(x,y,d)=>`<path class="tw" style="animation-delay:${d}s" transform="translate(${x} ${y})" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2Z" fill="#fff" ${st(1.5)}/>`;
+const cap=(n,t)=>`<g transform="translate(${416-t.length*6.6} 0)"><rect x="12" y="12" width="${t.length*6.6+40}" height="24" rx="12" fill="#FDFCF8" ${st(1.5)}/><circle cx="26" cy="24" r="8" fill="${CORAL}"/><text x="26" y="28" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">${n}</text><text x="40" y="28" font-size="11" font-weight="700" fill="${O}">${t}</text></g>`;
+
+const W=(arms,front='')=>`<g class="bob">
+<rect x="-24" y="66" width="20" height="46" rx="9" fill="#5F7392" ${st()}/><rect x="4" y="66" width="20" height="46" rx="9" fill="#5F7392" ${st()}/>
+<ellipse cx="-14" cy="114" rx="15" ry="7" fill="#5A4A44" ${st()}/><ellipse cx="14" cy="114" rx="15" ry="7" fill="#5A4A44" ${st()}/>
+<rect x="-34" y="-12" width="68" height="88" rx="26" fill="${SAGE}" ${st()}/><rect x="-34" y="-12" width="68" height="88" rx="26" fill="url(#h)"/>
+<path d="M-17 -13 L0 8 L-3 -13Z" fill="#FDFCF8" ${st(2)}/><path d="M17 -13 L0 8 L3 -13Z" fill="#FDFCF8" ${st(2)}/><path d="M-4 3 L4 3 L8 28 L0 38 L-8 28Z" fill="${CORAL}" ${st(2)}/>
+<path d="M-26 30 H-10 V44 Q-18 52 -26 44Z" fill="${SAGE2}" ${st(2)}/><path d="M-26 34 H-10" ${st(2)}/>
+${arms}${front}
+<circle cx="-34" cy="-44" r="9" fill="${SKIN}" ${st()}/><circle cx="34" cy="-44" r="9" fill="${SKIN}" ${st()}/><circle cx="-35" cy="-43" r="4" fill="${CORAL}" opacity=".35"/><circle cx="35" cy="-43" r="4" fill="${CORAL}" opacity=".35"/><circle cx="0" cy="-46" r="34" fill="${SKIN}" ${st()}/>
+<path d="M-36 -30 L-38 -52 Q-42 -92 0 -92 Q42 -92 38 -52 L36 -30 L31 -44 Q27 -60 17 -68 Q16 -58 8 -53 Q6 -62 -2 -70 Q-4 -60 -12 -56 Q-14 -64 -22 -67 Q-24 -56 -31 -44Z" fill="#8A5A44" ${st(2.8)}/>
+<ellipse cx="-20" cy="-79" rx="9" ry="4.5" fill="#B98264" opacity=".8" transform="rotate(-28 -20 -79)"/><ellipse cx="25" cy="-74" rx="5" ry="4" fill="#B98264" opacity=".8" transform="rotate(30 25 -74)"/>
+
+<g class="eye"><ellipse cx="-14" cy="-39" rx="9.5" ry="10.5" fill="#fff" ${st(2.2)}/><ellipse cx="-14" cy="-38.5" rx="8" ry="9.6" fill="#5B3A2E"/><ellipse cx="-14" cy="-34" rx="5.8" ry="5" fill="#8A5A44" opacity=".85"/><ellipse cx="-14" cy="-39" rx="4.2" ry="5.2" fill="#2E1B1B"/><circle cx="-17" cy="-43" r="3.2" fill="#fff"/><circle cx="-12" cy="-45.5" r="1.2" fill="#fff"/><path transform="translate(-10 -33)" d="M0 -3.4 L1 -1 L3.4 0 L1 1 L0 3.4 L-1 1 L-3.4 0 L-1 -1Z" fill="#fff"/><path d="M-23.5 -39 A9.5 10.5 0 0 1 -4.5 -39 M-23.5 -39 L-26.5 -42" fill="none" stroke="${O}" stroke-width="3.4" stroke-linecap="round"/></g><g class="eye"><ellipse cx="14" cy="-39" rx="9.5" ry="10.5" fill="#fff" ${st(2.2)}/><ellipse cx="14" cy="-38.5" rx="8" ry="9.6" fill="#5B3A2E"/><ellipse cx="14" cy="-34" rx="5.8" ry="5" fill="#8A5A44" opacity=".85"/><ellipse cx="14" cy="-39" rx="4.2" ry="5.2" fill="#2E1B1B"/><circle cx="11" cy="-43" r="3.2" fill="#fff"/><circle cx="16" cy="-45.5" r="1.2" fill="#fff"/><path transform="translate(18 -33)" d="M0 -3.4 L1 -1 L3.4 0 L1 1 L0 3.4 L-1 1 L-3.4 0 L-1 -1Z" fill="#fff"/><path d="M4.5 -39 A9.5 10.5 0 0 1 23.5 -39 M23.5 -39 L26.5 -42" fill="none" stroke="${O}" stroke-width="3.4" stroke-linecap="round"/></g>
+<path d="M-6.5 -24 Q0 -22.2 6.5 -24 Q5.5 -15.5 0 -15.5 Q-5.5 -15.5 -6.5 -24Z" fill="#D95F6C" ${st(2)}/><ellipse cx="0" cy="-17.6" rx="3" ry="1.5" fill="${CORAL}"/><path d="M-5 -23.4 Q0 -21.8 5 -23.4 L4.6 -21 Q0 -19.6 -4.6 -21Z" fill="#fff"/>
+</g>`;
+const floor=`<rect x="0" y="238" width="480" height="32" fill="#00000010"/><path d="M0 238 H480" stroke="${O}" stroke-width="2" opacity=".5"/>`;
+const shadow=x=>`<ellipse cx="${x}" cy="243" rx="46" ry="6" fill="#000" opacity=".1"/>`;
+
+// Panel 1: inspecting golden seeds
+const p1=`${cap(1,'Inspecting seeds')}<g filter="url(#sk)">${floor}${shadow(170)}
+<g transform="translate(170 120)">${W(A('M30 8 Q56 18 58 28')+A('M-30 8 Q-50 10 -50 -4')+H(-50,-4))}</g>
+<path d="M204 148 Q228 180 252 148Z" fill="${CORAL}" ${st()}/><ellipse cx="228" cy="147" rx="24" ry="8" fill="${SEED}" ${st()}/>${seed(220,143,20)}${seed(232,141,-15)}${seed(240,146,30)}
+<circle cx="120" cy="96" r="16" fill="#fff" fill-opacity=".5" stroke="${CORAL2}" stroke-width="4"/><path d="M120 112 V118" ${st(4)}/><ellipse cx="120" cy="96" rx="9" ry="6" fill="${SEED}" ${st(2)} transform="rotate(-25 120 96)"/>
+<path d="M342 238 Q330 196 356 176 L404 176 Q430 196 420 238Z" fill="#E0CFAF" ${st()}/><path d="M342 238 Q330 196 356 176 L404 176 Q430 196 420 238Z" fill="url(#h)"/>
+<rect x="354" y="172" width="52" height="9" rx="4" fill="${CORAL}" ${st()}/>
+<ellipse cx="380" cy="172" rx="26" ry="9" fill="${SEED}" ${st()}/><ellipse cx="383" cy="237" rx="50" ry="9" fill="${SEED}" ${st()}/>
+${seed(364,236,10)}${seed(388,234,-20)}${seed(406,238,30)}${seed(372,170,0)}${seed(390,172,25)}
+<g class="fl">${seed(300,110,20)}${seed(320,90,-30)}</g><g class="fl" style="animation-delay:-1.4s">${seed(270,76,10)}${seed(430,120,40)}</g>
+</g>`;
+
+// Panel 2: frosted glass oil press
+const p2=`${cap(2,'Cold pressing')}<g filter="url(#sk)">${floor}${shadow(120)}
+<path d="M280 64 L372 64 L352 94 L300 94Z" fill="${STONE}" ${st()}/><ellipse cx="326" cy="62" rx="40" ry="9" fill="${SEED}" ${st()}/>${seed(312,60,10)}${seed(330,58,-20)}${seed(344,62,25)}
+<rect x="276" y="94" width="96" height="120" rx="18" fill="#E8F1EE" fill-opacity=".8" ${st()}/>
+<g class="spin"><circle cx="324" cy="138" r="22" fill="none" stroke="${STONE2}" stroke-width="5" stroke-dasharray="9 6"/><circle cx="324" cy="138" r="6" fill="${CORAL}" ${st(2)}/></g>
+<g class="oil"><rect x="282" y="186" width="84" height="34" rx="8" fill="${GOLD}" fill-opacity=".9"/></g>
+<rect x="276" y="94" width="96" height="120" rx="18" fill="none" ${st()}/>
+<path d="M288 106 V160" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/><path d="M288 170 V176" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+<rect x="264" y="212" width="120" height="26" rx="10" fill="${STONE2}" ${st()}/><rect x="264" y="212" width="120" height="26" rx="10" fill="url(#h)"/>
+<circle cx="288" cy="225" r="6" fill="${CORAL}" ${st(2)}/><circle cx="308" cy="225" r="6" fill="${SAGE}" ${st(2)}/>
+<path d="M372 192 H402 V210" fill="none" stroke="${O}" stroke-width="11" stroke-linecap="round"/><path d="M372 192 H402 V210" fill="none" stroke="${STONE}" stroke-width="7" stroke-linecap="round"/>
+<circle class="drop" cx="402" cy="212" r="3.5" fill="${GOLD}" ${st(1.4)}/>
+<rect x="384" y="222" width="46" height="16" rx="6" fill="${GOLD}" fill-opacity=".9" ${st(2)}/>
+<path d="M268 150 L206 136" ${st(7)}/><path d="M268 150 L206 136" stroke="${CORAL}" stroke-width="3.5" stroke-linecap="round"/><circle cx="268" cy="150" r="6" fill="${STONE2}" ${st(2)}/>
+<g transform="translate(120 120)">${W(A('M30 8 Q62 22 86 16')+A('M-30 8 Q-48 30 -26 46')+H(-26,46)+H(86,16,9))}</g>
+</g>`;
+
+// Panel 3: lab purity tablet
+const p3=`${cap(3,'Checking purity')}<g filter="url(#sk)">${floor}${shadow(160)}
+<g transform="translate(160 120)">${W(A('M-30 8 Q-42 42 -16 40')+A('M30 8 Q42 42 16 40'),
+`<g transform="rotate(-4 0 34)"><rect x="-27" y="16" width="54" height="40" rx="7" fill="${O}" ${st()}/><rect x="-23" y="20" width="46" height="32" rx="3" fill="#FDFCF8"/>
+<rect class="bar" x="-17" y="32" width="7" height="16" fill="${SAGE2}"/><rect class="bar" style="animation-delay:-.8s" x="-6" y="28" width="7" height="20" fill="${GOLD}"/><rect class="bar" style="animation-delay:-1.6s" x="5" y="25" width="7" height="23" fill="${SAGE2}"/><circle cx="17" cy="26" r="3" fill="${CORAL}"/></g>${H(-27,52)}${H(27,52)}`)}</g>
+<g class="fl"><rect x="290" y="56" width="160" height="112" rx="16" fill="#FDFCF8" ${st()}/><rect x="290" y="56" width="160" height="112" rx="16" fill="url(#h)" opacity=".5"/>
+<text x="306" y="80" font-size="12" font-weight="800" fill="${O}">Oil purity</text>
+<text x="306" y="116" font-size="30" font-weight="900" fill="${SAGE2}">99.8%</text>
+<path d="M304 152 Q326 128 346 142 T390 130 T434 140" fill="none" stroke="${GOLD}" stroke-width="4" stroke-linecap="round"/>
+<circle cx="424" cy="82" r="14" fill="${SAGE}" ${st()}/><path d="M417 82 L422 88 L432 76" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<path d="M208 140 Q250 150 290 150" fill="none" stroke="${CORAL2}" stroke-width="2.5" stroke-dasharray="3 7" stroke-linecap="round"/>
+<path d="M336 196 V212 L322 238 H370 L356 212 V196Z" fill="#fff" fill-opacity=".6" ${st()}/><path d="M329 226 L322 238 H370 L363 226Z" fill="${GOLD}" ${st(2)}/><rect x="332" y="192" width="28" height="6" rx="3" fill="${CORAL}" ${st(2)}/>
+<rect x="392" y="206" width="16" height="32" rx="8" fill="#fff" fill-opacity=".6" ${st()}/><path d="M392 222 H408 V230 Q408 238 400 238 Q392 238 392 230Z" fill="${GOLD}" ${st(2)}/>
+<rect x="416" y="212" width="16" height="26" rx="8" fill="#fff" fill-opacity=".6" ${st()}/><path d="M416 226 H432 V230 Q432 238 424 238 Q416 238 416 230Z" fill="${CORAL}" ${st(2)}/>
+</g>`;
+
+// Panel 4: sealed drum + thumbs up
+const p4=`${cap(4,'Sealed and ready')}<g filter="url(#sk)">${floor}${shadow(140)}
+<rect x="270" y="108" width="120" height="130" rx="14" fill="#EBC04E" ${st()}/><rect x="270" y="108" width="120" height="130" rx="14" fill="url(#h)"/>
+<rect x="270" y="132" width="120" height="8" fill="#D9AA38" ${st(2)}/><rect x="270" y="206" width="120" height="8" fill="#D9AA38" ${st(2)}/>
+<ellipse cx="330" cy="108" rx="60" ry="12" fill="${STONE}" ${st()}/><circle cx="352" cy="108" r="5" fill="${CORAL}" ${st(2)}/><ellipse cx="316" cy="108" rx="14" ry="4" fill="none" stroke="${O}" stroke-width="1.5" opacity=".6"/>
+<rect x="292" y="148" width="76" height="52" rx="9" fill="#FDFCF8" ${st()}/>
+<path d="M330 154 Q319 170 330 177 Q341 170 330 154Z" fill="${GOLD}" ${st(2)}/>
+<text x="330" y="193" text-anchor="middle" font-size="10" font-weight="900" fill="${O}">PURE OIL</text>
+<circle cx="378" cy="124" r="13" fill="${CORAL}" ${st()}/><path d="M371 124 L376 130 L386 118" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(140 120)">${W(A('M-30 8 Q-44 30 -34 50')+H(-34,50)+A('M30 8 Q60 6 58 -16')+`<g class="thumb"><path d="M53 -12 Q49 -14 50 -19 L54 -24 L54 -34 Q54 -40 60 -40 Q66 -40 66 -34 L66 -25 L76 -25 Q82 -25 82 -20 Q82 -17 78 -15 Q82 -11 78 -7 Q80 -2 74 1 L63 1 Q56 0 53 -5Z" fill="${SKIN}" ${st(2.5)}/><path d="M67 -20 Q72 -18 78 -20 M67 -13 Q72 -11 78 -12 M65 -6 Q70 -4 75 -5 M54 -24 L60 -23" fill="none" stroke="#C58F70" stroke-width="2" stroke-linecap="round"/></g>`)}</g>
+</g>`;
+
+const stage=document.getElementById('stage');
+[p1,p2,p3,p4].forEach((c,i)=>{stage.insertAdjacentHTML('beforeend',`<section class="panel p${i+1}"><svg viewBox="0 0 480 270" role="img" aria-label="Panel ${i+1}">${c}</svg></section>`)});
+
+// hand-drawn "line boil": re-seed the displacement noise
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const t=document.getElementById('t');let s=1;
+  setInterval(()=>t.setAttribute('seed',s=s%6+1),170);
+}
+</script>
+</body>
+</html>
