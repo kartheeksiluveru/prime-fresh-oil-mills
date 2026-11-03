@@ -855,6 +855,30 @@ body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 .byproduct-pack strong { color: #426451; }
 .byproduct-card .btn-primary { margin-top: 4px; }
 @media (max-width: 760px) { .byproduct-card { min-height: 0; padding: 28px; } .cake-metrics { gap: 24px; } }
+
+/* High-end glass treatment for Industrial Catalog. */
+.catalog-section { position: relative; overflow: hidden; background: radial-gradient(circle at 88% 8%, rgba(229,167,65,.14), transparent 25rem), linear-gradient(145deg, #eef2ec, #faf8f2 58%, #e9eee9); }
+.catalog-section::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .15; background-image: radial-gradient(rgba(16,70,50,.34) .55px, transparent .55px); background-size: 8px 8px; mask-image: linear-gradient(115deg, transparent, #000 38%, transparent 100%); }
+.catalog-section .wrap { position: relative; z-index: 1; }
+.catalog-section .section-head { max-width: 760px; }
+.catalog-section .section-head .kicker { display: inline-flex; align-items: center; gap: 9px; color: #8c5b20; }
+.catalog-section .section-head .kicker::before { content: ""; width: 25px; height: 1px; background: #c87922; box-shadow: 0 0 10px rgba(200,121,34,.8); }
+.catalog-section .section-head h2 { color: #103f30; letter-spacing: -.055em; text-shadow: 0 10px 30px rgba(16,63,48,.1); }
+.product-grid { gap: 24px; }
+.product-card { position: relative; isolation: isolate; overflow: hidden; border: 1px solid rgba(255,255,255,.84); border-radius: 30px; background: linear-gradient(145deg, rgba(255,255,255,.76), rgba(255,255,255,.32)); box-shadow: 0 24px 58px rgba(31,65,48,.11), inset 0 1px 0 rgba(255,255,255,.96); backdrop-filter: blur(24px) saturate(145%); transition: transform .4s cubic-bezier(.2,.75,.2,1), box-shadow .4s ease, border-color .4s ease; }
+.product-card::before { content: ""; position: absolute; z-index: -1; width: 240px; height: 240px; right: -90px; top: -105px; border-radius: 50%; background: radial-gradient(circle, rgba(242,181,45,.25), transparent 68%); filter: blur(5px); }
+.product-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,.98); box-shadow: 0 34px 78px rgba(31,65,48,.18), inset 0 1px 0 rgba(255,255,255,1); }
+.product-image-wrap { overflow: hidden; border: 1px solid rgba(255,255,255,.62); border-radius: 22px; background: rgba(255,255,255,.46); box-shadow: inset 0 1px 0 rgba(255,255,255,.88); }
+.product-card .product-image-wrap img { transition: transform .75s cubic-bezier(.2,.7,.2,1), filter .5s ease; }
+.product-card:hover .product-image-wrap img { transform: scale(1.045); filter: saturate(1.08) contrast(1.04); }
+.catalog-title-row { align-items: center; margin: 22px 0 15px; }
+.catalog-title-row h3 { color: #164d39; letter-spacing: -.035em; }
+.catalog-title-row .price { padding: 8px 11px; border: 1px solid rgba(200,121,34,.28); border-radius: 999px; color: #8c5b20; background: rgba(255,246,220,.62); box-shadow: inset 0 1px 0 rgba(255,255,255,.85); font-size: .9rem; }
+.spec-list { border-color: rgba(24,77,57,.12); }
+.spec-list dt { color: #7a827b; }
+.spec-list dd { color: #224b3b; }
+.product-card .btn { box-shadow: 0 10px 24px rgba(31,65,48,.1), inset 0 1px 0 rgba(255,255,255,.35); }
+@media (max-width: 760px) { .product-grid { gap: 18px; } .product-card { border-radius: 25px; } }
 .cake-options { display: grid; gap: 10px; border: 0; padding: 0; margin: 20px 0; }
 .cake-options legend { margin-bottom: 4px; font-weight: 700; color: var(--slate); }
 .cake-options label { display: flex; align-items: center; gap: 10px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.64); }
