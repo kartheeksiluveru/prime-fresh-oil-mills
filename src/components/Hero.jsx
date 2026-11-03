@@ -33,7 +33,7 @@ export default function Hero({ onOpenSpecs }) {
         <div className="wrap hero-carousel-content">
           <div className="hero-copy">
             <p className="kicker">{product.grade}</p>
-            <h1>Pure Single-Source Oils. No fillers, no blends—just uncompromised quality for your brand.</h1>
+            <h1>No fillers, no blends—just uncompromised quality for your brand.</h1>
             <p className="lede">{product.tagline}</p>
             <div className="hero-actions">
               <button className="btn btn-primary" type="button" onClick={() => onOpenSpecs?.(product.id)}>View spec sheet / CoA</button>
