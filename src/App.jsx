@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import ByProducts from "./components/ByProducts.jsx";
 import Capabilities from "./components/Capabilities.jsx";
 import Catalog from "./components/Catalog.jsx";
 import Footer from "./components/Footer.jsx";
@@ -35,6 +36,7 @@ export default function App() {
         <Hero onOpenSpecs={openSpecs} />
         <Capabilities />
         <Catalog onOpenSpecs={openSpecs} />
+        <ByProducts />
         <QuoteCalculator
           quote={quote}
           onQuoteChange={setQuote}
