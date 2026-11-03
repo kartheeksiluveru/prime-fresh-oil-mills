@@ -627,6 +627,47 @@ h1 {
   text-align: center;
 }
 
+/* Softly tactile industrial direction */
+:root { --bg: #fdfcf8; --white: #fff; --slate: #292524; --forest: #166534; --amber: #c58a11; --amber-soft: #fff0ed; --border: #e7e2dc; --muted: #78716c; --radius: 18px; }
+body { background: var(--bg); font-family: "Outfit", system-ui, sans-serif; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: .12; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E"); }
+h1, h2, h3, .brand, .brand-plain { font-family: "Outfit", sans-serif; color: var(--slate); letter-spacing: -.035em; }
+.site-header { top: 16px; width: min(960px, calc(100% - 32px)); margin: 0 auto; background: rgba(255,255,255,.76); border: 1px solid rgba(231,226,220,.8); border-radius: 999px; box-shadow: 0 10px 30px rgba(41,37,36,.07); backdrop-filter: blur(14px); }
+.ops-bar { display: none; }
+.nav-row { min-height: 68px; padding: 0 20px; }
+.brand { flex-direction: row; align-items: center; gap: 10px; font-size: .98rem; }
+.brand img { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; }
+.brand span { font-family: inherit; font-size: .78rem; letter-spacing: .08em; color: var(--slate); text-transform: uppercase; }
+.nav-links a { font-size: .84rem; color: var(--muted); }
+.nav-cta, .btn-primary { background: var(--slate); color: #fff !important; border-radius: 999px; padding: 11px 18px; }
+.hero { position: relative; overflow: hidden; padding: 112px 0 70px; border: 0; background: radial-gradient(circle at 12% 18%, #ffe4e1 0, transparent 28%), radial-gradient(circle at 92% 20%, #e6e6fa 0, transparent 30%), var(--bg); }
+.hero::after { content: ""; position: absolute; width: 240px; height: 240px; right: 8%; bottom: 6%; border-radius: 50%; background: #ffe4e1; opacity: .38; filter: blur(8px); animation: float 6s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px); } }
+.hero-grid { position: relative; z-index: 1; align-items: center; }
+.kicker { color: #b7791f; letter-spacing: .14em; }
+h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); max-width: 760px; }
+.lede { font-size: 1.1rem; max-width: 41rem; }
+.btn { border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(41,37,36,.1); }
+.hero-card, .product-card, .panel, .stat, .success-card { border-radius: 28px; border-color: #e7e2dc; box-shadow: 0 12px 32px rgba(41,37,36,.05); }
+.hero-card { background: rgba(255,255,255,.8); backdrop-filter: blur(10px); }
+.section { padding: 86px 0; }
+.section.band { background: #f3f0ea; border-color: transparent; }
+.catalog-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.product-card { padding: 0 18px 20px; overflow: hidden; background: #fff; }
+.product-image-wrap { height: 168px; margin: 0 -18px 18px; overflow: hidden; background: #efedf4; }
+.product-image { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
+.product-card:hover .product-image { transform: scale(1.05); }
+.product-card h3 { font-size: 1.25rem; }
+.badge { border-radius: 999px; background: #efedf4; border: 0; }
+.badge.hero { background: #ffb7b2; color: var(--slate); }
+.spec-list div, .metric-row div { border: 0; border-radius: 14px; background: #f5f3ee; }
+.panel { border-radius: 30px; }
+.site-footer { background: var(--slate); color: #f5f5f4; border: 0; }
+.site-footer a, .brand-plain { color: #ffb7b2; }
+@media (max-width: 960px) { .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .site-header { top: 8px; } .catalog-grid { grid-template-columns: 1fr; } .brand span { font-size: .68rem; } }
+
 @media (max-width: 960px) {
   .hero-grid,
   .calc-grid,

@@ -44,8 +44,8 @@ export default function Navbar() {
       </div>
       <div className="wrap nav-row">
         <a className="brand" href="#top" onClick={close}>
-          Prime Fresh Oil Mills
-          <span>B2B vegetable oils</span>
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Prime_Fresh_Oil_Mills_Original_Logo-aQfInHew7r22vP03SkFGFCuQS27XDf.jpg" alt="Prime Fresh Oil Mills logo" />
+          <span>Prime Fresh Oil Mills</span>
         </a>
         <button
           className="menu-toggle"

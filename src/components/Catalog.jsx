@@ -32,6 +32,9 @@ export default function Catalog({ onOpenSpecs }) {
               const packs = listPackaging(product);
               return (
                 <article className="product-card" key={product.id}>
+                  <div className="product-image-wrap">
+                    <img className="product-image" src={product.image} alt={`${product.name} oil and source ingredients`} loading="lazy" />
+                  </div>
                   <div className="badge-row">
                     {product.isHero ? <span className="badge hero">Hero crush</span> : null}
                     <span className="badge grade">{product.grade ?? "Mill grade"}</span>

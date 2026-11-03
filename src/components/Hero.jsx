@@ -14,12 +14,11 @@ export default function Hero({ onOpenSpecs }) {
     <section className="hero" id="top">
       <div className="wrap hero-grid">
         <div>
-          <p className="kicker">Flagship crush · {hero.sku}</p>
-          <h1>Yellow Mustard Oil for brand owners who specify purity, not blends.</h1>
+          <p className="kicker">Flagship mill run · {hero.sku}</p>
+          <h1>{hero.name} for brands that specify purity, not blends.</h1>
           <p className="lede">
-            Cold-pressed, high pungency, 100% pure mustard oil for edible oil brands,
-            FMCG companies, and private-label partners — with batch CoA, tin-to-tanker
-            packing, and PAN-India dispatch from Sitapura, Jaipur.
+            Bright, dependable edible oil for FMCG companies, foodservice operators, and
+            private-label partners — with batch CoA, tin-to-tanker packing, and PAN-India dispatch from Sitapura, Jaipur.
           </p>
           <div className="hero-actions">
             <button
@@ -34,7 +33,7 @@ export default function Hero({ onOpenSpecs }) {
             </a>
           </div>
         </div>
-        <aside className="hero-card" aria-label="Yellow Mustard Oil snapshot">
+        <aside className="hero-card" aria-label={`${hero.name} snapshot`}>
           <p className="kicker">{hero.grade}</p>
           <h2>{hero.name}</h2>
           <p className="muted">{hero.tagline}</p>
