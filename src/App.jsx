@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import ByProducts from "./components/ByProducts.jsx";
+import ContractManufacturing from "./components/ContractManufacturing.jsx";
 import Capabilities from "./components/Capabilities.jsx";
 import Catalog from "./components/Catalog.jsx";
 import Footer from "./components/Footer.jsx";
@@ -37,6 +38,7 @@ export default function App() {
         <Capabilities />
         <Catalog onOpenSpecs={openSpecs} />
         <ByProducts />
+        <ContractManufacturing />
         <QuoteCalculator
           quote={quote}
           onQuoteChange={setQuote}
