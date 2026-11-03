@@ -816,6 +816,22 @@ body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 .hero-pagination { box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 12px 30px rgba(8,34,24,.22); }
 @keyframes premium-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .72; transform: scale(.84); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+/* Editorial graphics-only polish. No content, structure, or controls are changed. */
+.hero::after, .section:not(.hero)::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .3; background-image: linear-gradient(115deg, transparent 0 44%, rgba(255,255,255,.24) 49%, transparent 55%), radial-gradient(circle at 18% 22%, rgba(242,181,45,.1), transparent 24rem); background-size: 180% 100%, 100% 100%; animation: editorial-sheen 18s ease-in-out infinite alternate; }
+.hero, .section:not(.hero) { isolation: isolate; }
+.hero-slide img, .product-image, .product-card img { filter: saturate(.94) contrast(1.03); transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .5s ease; }
+.hero-slide:hover img { transform: scale(1.025); filter: saturate(1.05) contrast(1.05); }
+.product-card:hover .product-image, .product-card:hover img { transform: scale(1.035); filter: saturate(1.08) contrast(1.04); }
+.product-card, .byproduct-card, .contract-card, .stat { animation: card-lift-in .75s both; }
+.product-card:nth-child(2), .byproduct-card:nth-child(2), .contract-card:nth-child(2), .stat:nth-child(2) { animation-delay: .08s; }
+.product-card:nth-child(3), .byproduct-card:nth-child(3), .contract-card:nth-child(3), .stat:nth-child(3) { animation-delay: .16s; }
+.product-card:nth-child(4), .stat:nth-child(4) { animation-delay: .24s; }
+.conversation-card, .cake-modal, .modal { box-shadow: 0 28px 80px rgba(20,45,33,.16), inset 0 1px 0 rgba(255,255,255,.86); }
+.section-head .kicker, .kicker { text-shadow: 0 1px 0 rgba(255,255,255,.5); }
+@keyframes editorial-sheen { 0% { background-position: 120% 0, 0 0; } 100% { background-position: -20% 0, 0 0; } }
+@keyframes card-lift-in { from { opacity: .82; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero::after, .section:not(.hero)::after, .product-card, .byproduct-card, .contract-card, .stat { animation: none !important; } }
 .cake-options { display: grid; gap: 10px; border: 0; padding: 0; margin: 20px 0; }
 .cake-options legend { margin-bottom: 4px; font-weight: 700; color: var(--slate); }
 .cake-options label { display: flex; align-items: center; gap: 10px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.64); }
