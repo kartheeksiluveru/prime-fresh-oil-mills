@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const LINKS = [
   { href: "#catalog", label: "Catalog" },
   { href: "#contract-manufacturing", label: "Contract Manufacturing" },
-  { href: "#rfq", label: "RFQ" },
 ];
 
 export default function Navbar() {
@@ -64,9 +63,6 @@ export default function Navbar() {
               </a>
             ) : null
           )}
-          <a className="nav-cta" href="#rfq" onClick={close}>
-            Request quote
-          </a>
         </nav>
       </div>
     </header>
