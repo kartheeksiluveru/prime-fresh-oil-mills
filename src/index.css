@@ -794,6 +794,28 @@ h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); max-width: 760px; }
 .conversation-orbit-one { width: 520px; height: 520px; right: -90px; top: -230px; box-shadow: 0 0 0 42px rgba(255,255,255,.025), 0 0 0 84px rgba(255,255,255,.018); }
 .conversation-orbit-two { width: 290px; height: 290px; right: 16%; bottom: -210px; border-color: rgba(242,181,45,.18); }
 @media (max-width: 760px) { .conversation-section { padding-top: 28px; } .conversation-card { align-items: flex-start; flex-direction: column; min-height: 0; padding: 42px 26px; border-radius: 28px; } .conversation-copy h2 { font-size: clamp(2.7rem, 15vw, 4.4rem); } .conversation-drawer-wrap { width: 100%; flex-basis: auto; } .conversation-drawer { width: 100%; } .conversation-button { width: 100%; flex-basis: auto; } .owner-card { align-items: flex-start; flex-wrap: wrap; } .owner-actions { margin-left: 54px; } .drawer-fields { grid-template-columns: 1fr; } .drawer-field-wide { grid-column: auto; } .drawer-success { align-items: flex-start; flex-wrap: wrap; } .drawer-success .drawer-close { margin-left: 47px; } }
+
+/* Premium visual pass: same structure and controls, richer material language. */
+:root { --bg: #f7f4ee; --white: #fffdf8; --slate: #20332c; --forest: #0d4b38; --amber: #c87922; --amber-soft: #fff1d6; --border: rgba(31,73,57,.14); --muted: #716f68; --radius: 12px; }
+body { background: radial-gradient(circle at 9% 0%, rgba(242,181,45,.11), transparent 28rem), radial-gradient(circle at 93% 38%, rgba(184,104,90,.08), transparent 30rem), var(--bg); }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .16; background-image: radial-gradient(rgba(13,75,56,.3) .55px, transparent .55px); background-size: 7px 7px; mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent); }
+.site-header { background: rgba(255,253,248,.82); border-bottom-color: rgba(13,75,56,.12); box-shadow: 0 8px 28px rgba(21,53,40,.06); backdrop-filter: blur(18px) saturate(135%); }
+.ops-bar { background: linear-gradient(90deg, #173c30, #0d4b38 55%, #183d31); }
+.pulse { box-shadow: 0 0 0 5px rgba(52,211,153,.12), 0 0 18px rgba(52,211,153,.7); animation: premium-pulse 2.6s ease-in-out infinite; }
+.nav-links a { transition: color .2s ease, transform .2s ease; } .nav-links a:hover { color: var(--amber); transform: translateY(-1px); }
+.nav-cta, .btn-primary, .conversation-button { border: 1px solid rgba(255,218,126,.65); background: linear-gradient(135deg, #d98a25, #b96520); box-shadow: 0 10px 26px rgba(185,101,32,.2), inset 0 1px 0 rgba(255,255,255,.35); transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
+.nav-cta:hover, .btn-primary:hover, .conversation-button:hover { filter: saturate(1.1) brightness(1.04); box-shadow: 0 16px 34px rgba(185,101,32,.32), inset 0 1px 0 rgba(255,255,255,.48); }
+.hero, .section { border-color: rgba(13,75,56,.11); }
+.hero-copy h1 { text-wrap: balance; text-shadow: 0 8px 34px rgba(13,75,56,.08); }
+.section-head h2 { text-wrap: balance; }
+.product-card, .byproduct-card, .contract-card, .contract-cta, .panel, .stat { border-color: rgba(255,255,255,.82); box-shadow: 0 20px 52px rgba(28,59,45,.1), inset 0 1px 0 rgba(255,255,255,.88); }
+.product-card, .byproduct-card, .contract-card, .stat { transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s ease, border-color .35s ease; }
+.product-card:hover, .byproduct-card:hover, .contract-card:hover, .stat:hover { border-color: rgba(200,121,34,.36); }
+.btn, .slide-control, .icon-btn, .nav-cta, .conversation-button { -webkit-tap-highlight-color: transparent; }
+.btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(242,181,45,.62); outline-offset: 3px; }
+.hero-pagination { box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 12px 30px rgba(8,34,24,.22); }
+@keyframes premium-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .72; transform: scale(.84); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
 .cake-options { display: grid; gap: 10px; border: 0; padding: 0; margin: 20px 0; }
 .cake-options legend { margin-bottom: 4px; font-weight: 700; color: var(--slate); }
 .cake-options label { display: flex; align-items: center; gap: 10px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.64); }
