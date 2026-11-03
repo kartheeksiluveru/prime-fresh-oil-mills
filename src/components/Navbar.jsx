@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const LINKS = [
   { href: "#catalog", label: "Catalog" },
   { href: "#contract-manufacturing", label: "Contract Manufacturing" },
-  { href: "#quote", label: "Bulk Quote" },
   { href: "#rfq", label: "RFQ" },
 ];
 
