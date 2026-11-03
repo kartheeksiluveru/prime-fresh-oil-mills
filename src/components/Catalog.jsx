@@ -33,7 +33,10 @@ export default function Catalog({ onOpenSpecs }) {
                   <div className="badge-row">
                       <span className="badge grade">{product.grade ?? "Mill grade"}</span>
                   </div>
-                  <h3>{product.name}</h3>
+                  <div className="catalog-title-row">
+                    <h3>{product.name}</h3>
+                    <p className="price">{formatInr(product.basePricePerLiter)} / L</p>
+                  </div>
                   <dl className="spec-list">
                     <div>
                       <dt>Purity %</dt>
@@ -52,9 +55,6 @@ export default function Catalog({ onOpenSpecs }) {
                       <dd>{product.specificGravity30C ?? "—"}</dd>
                     </div>
                   </dl>
-                  <p className="price">
-                    {formatInr(product.basePricePerLiter)} / L
-                  </p>
                   <button
                     className="btn btn-primary"
                     type="button"
