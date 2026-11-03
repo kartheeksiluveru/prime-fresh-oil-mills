@@ -35,8 +35,8 @@ export default function App() {
       <Navbar />
       <main>
         <Hero onOpenSpecs={openSpecs} />
-        <Capabilities />
         <Catalog onOpenSpecs={openSpecs} />
+        <Capabilities />
         <ByProducts />
         <ContractManufacturing />
         <QuoteCalculator
