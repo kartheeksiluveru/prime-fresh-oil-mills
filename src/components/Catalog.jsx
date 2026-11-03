@@ -1,8 +1,4 @@
-import {
-  formatInr,
-  getProducts,
-  listPackaging,
-} from "../utils/oilData";
+import { formatInr, getProducts } from "../utils/oilData";
 
 export default function Catalog({ onOpenSpecs }) {
   const products = getProducts();
@@ -29,7 +25,6 @@ export default function Catalog({ onOpenSpecs }) {
           ) : (
             (products ?? []).map((product) => {
               if (!product?.id) return null;
-              const packs = listPackaging(product);
               return (
                 <article className="product-card" key={product.id}>
                   <div className="product-image-wrap">
@@ -39,7 +34,6 @@ export default function Catalog({ onOpenSpecs }) {
                       <span className="badge grade">{product.grade ?? "Mill grade"}</span>
                   </div>
                   <h3>{product.name}</h3>
-                  <p className="muted">{product.tagline}</p>
                   <dl className="spec-list">
                     <div>
                       <dt>Purity %</dt>
@@ -61,11 +55,6 @@ export default function Catalog({ onOpenSpecs }) {
                   <p className="price">
                     {formatInr(product.basePricePerLiter)} / L
                   </p>
-                  <div className="pack-pills">
-                    {(packs ?? []).map((item) =>
-                      item?.id ? <span key={item.id}>{item.label}</span> : null
-                    )}
-                  </div>
                   <button
                     className="btn btn-primary"
                     type="button"
