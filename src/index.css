@@ -832,6 +832,29 @@ body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 @keyframes editorial-sheen { 0% { background-position: 120% 0, 0 0; } 100% { background-position: -20% 0, 0 0; } }
 @keyframes card-lift-in { from { opacity: .82; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) { .hero::after, .section:not(.hero)::after, .product-card, .byproduct-card, .contract-card, .stat { animation: none !important; } }
+
+/* High-end glass treatment for Sustainable By-products / Feed & extraction. */
+.byproducts-section { position: relative; overflow: hidden; background: radial-gradient(circle at 12% 12%, rgba(238,177,65,.16), transparent 25rem), radial-gradient(circle at 92% 82%, rgba(83,158,116,.16), transparent 27rem), linear-gradient(135deg, #edf1e9, #faf8f2 56%, #e8eee8); }
+.byproducts-section::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .18; background-image: radial-gradient(rgba(16,70,50,.35) .55px, transparent .55px); background-size: 8px 8px; mask-image: linear-gradient(120deg, #000, transparent 80%); }
+.byproducts-section .wrap { position: relative; z-index: 1; }
+.byproducts-head { max-width: 760px; }
+.byproducts-head .kicker { display: inline-flex; align-items: center; gap: 9px; color: #8c5b20; }
+.byproducts-head .kicker::before { content: ""; width: 25px; height: 1px; background: #c87922; box-shadow: 0 0 10px rgba(200,121,34,.8); }
+.byproducts-head h2 { max-width: 720px; color: #103f30; letter-spacing: -.055em; text-shadow: 0 10px 30px rgba(16,63,48,.1); }
+.byproducts-head > p:last-child { max-width: 650px; color: #656d66; }
+.byproduct-grid { position: relative; gap: 24px; }
+.byproduct-card { isolation: isolate; min-height: 330px; padding: 34px; border: 1px solid rgba(255,255,255,.82); border-top: 1px solid rgba(255,255,255,.9); border-radius: 30px; background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.3)); box-shadow: 0 24px 55px rgba(31,65,48,.11), inset 0 1px 0 rgba(255,255,255,.96), inset 0 -1px 0 rgba(255,255,255,.24); backdrop-filter: blur(24px) saturate(145%); transition: transform .4s cubic-bezier(.2,.75,.2,1), box-shadow .4s ease, border-color .4s ease; }
+.byproduct-card::before { content: ""; position: absolute; z-index: -1; width: 190px; height: 190px; right: -48px; top: -58px; border-radius: 50%; background: radial-gradient(circle, rgba(255,203,108,.38), transparent 68%); filter: blur(5px); }
+.byproduct-card.lime::before { background: radial-gradient(circle, rgba(122,190,128,.34), transparent 68%); }
+.byproduct-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,.98); box-shadow: 0 34px 75px rgba(31,65,48,.17), inset 0 1px 0 rgba(255,255,255,1); }
+.byproduct-index { color: #7d827b; font-size: .67rem; letter-spacing: .16em; }
+.byproduct-card h3 { position: relative; margin-bottom: 30px; color: #164d39; font-size: clamp(1.8rem, 3vw, 2.3rem); letter-spacing: -.045em; }
+.cake-metrics { gap: 42px; padding: 18px 0; border-block: 1px solid rgba(24,77,57,.12); }
+.cake-metrics b { color: #167343; font-size: 2rem; text-shadow: 0 4px 18px rgba(22,115,67,.15); }
+.byproduct-pack { color: #6b746c; font-size: .9rem; }
+.byproduct-pack strong { color: #426451; }
+.byproduct-card .btn-primary { margin-top: 4px; }
+@media (max-width: 760px) { .byproduct-card { min-height: 0; padding: 28px; } .cake-metrics { gap: 24px; } }
 .cake-options { display: grid; gap: 10px; border: 0; padding: 0; margin: 20px 0; }
 .cake-options legend { margin-bottom: 4px; font-weight: 700; color: var(--slate); }
 .cake-options label { display: flex; align-items: center; gap: 10px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.64); }
