@@ -1,77 +1,55 @@
-import {
-  formatInr,
-  getHeroProduct,
-  listPackaging,
-} from "../utils/oilData";
+import { useEffect, useState } from "react";
+import { getProducts } from "../utils/oilData";
+
+const SLIDE_IMAGES = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-11-03%20at%206.02.41%E2%80%AFPM-3nhTPZxfmFC2YoAgZMgdRIdQTvBbPx.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-11-03%20at%206.04.00%E2%80%AFPM-IxirG0NMlyaVvZeqxLar7SAnIfXQWQ.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-11-03%20at%206.07.20%E2%80%AFPM-rfKuee5T3TMm0DpIdMXWAAOo7zb4JC.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-11-03%20at%206.05.41%E2%80%AFPM-HkQOkpd6GB1U0KoI05ag0oYuzEG3VX.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-11-03%20at%206.06.37%E2%80%AFPM-VhzsTos7aOUAJOg6SD5pNRbVSMTlNZ.png",
+];
 
 export default function Hero({ onOpenSpecs }) {
-  const hero = getHeroProduct();
-  if (!hero) return null;
+  const products = getProducts();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const product = products[activeIndex % products.length];
 
-  const packs = listPackaging(hero);
+  useEffect(() => {
+    const timer = window.setInterval(() => setActiveIndex((index) => (index + 1) % SLIDE_IMAGES.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [products.length]);
+
+  if (!product) return null;
+
+  const goTo = (direction) => setActiveIndex((index) => (index + direction + SLIDE_IMAGES.length) % SLIDE_IMAGES.length);
 
   return (
-    <section className="hero" id="top">
-      <div className="wrap hero-grid">
-        <div>
-          <p className="kicker">Flagship oil</p>
-          <h1>Pure Single-Source Oils. No fillers, no blends—just uncompromised quality for your brand.</h1>
-          <p className="lede">
-            Premium edible oil tailored for FMCG, foodservice, and private labels. We deliver certified purity (batch CoA) with flexible packing
-          </p>
-          <div className="hero-actions">
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={() => onOpenSpecs?.(hero.id)}
-            >
-              View spec sheet / CoA
-            </button>
-            <a className="btn btn-ghost" href="#quote">
-              Calculate bulk quote
-            </a>
+    <section className="hero hero-carousel" id="top">
+      <div className="hero-stage" style={{ backgroundImage: `url(${SLIDE_IMAGES[activeIndex % SLIDE_IMAGES.length]})` }}>
+        <div className="hero-shade" />
+        <div className="hero-slide-count">{String(activeIndex + 1).padStart(2, "0")} / {String(SLIDE_IMAGES.length).padStart(2, "0")} CORE SKUS</div>
+        <button className="slide-control slide-prev" type="button" aria-label="Previous oil" onClick={() => goTo(-1)}>←</button>
+        <button className="slide-control slide-next" type="button" aria-label="Next oil" onClick={() => goTo(1)}>→</button>
+        <div className="wrap hero-carousel-content">
+          <div className="hero-copy">
+            <p className="kicker">{product.grade}</p>
+            <h1>Pure Single-Source Oils. No fillers, no blends—just uncompromised quality for your brand.</h1>
+            <p className="lede">{product.tagline}</p>
+            <div className="hero-actions">
+              <button className="btn btn-primary" type="button" onClick={() => onOpenSpecs?.(product.id)}>View spec sheet / CoA</button>
+              <a className="btn btn-ghost" href="#quote">Calculate bulk quote</a>
+            </div>
           </div>
+          <aside className="hero-card" aria-label={`${product.name} snapshot`}>
+            <p className="kicker">{product.grade}</p>
+            <h2>{product.name}</h2>
+            <p className="muted">{product.tagline}</p>
+            <div className="metric-row metric-row-simple">
+              <div><span>PURITY</span><b>{product.purity}%</b></div>
+              <div><span>SUPPLY RELIABILITY</span><b>98.4%</b></div>
+            </div>
+          </aside>
         </div>
-        <aside className="hero-card" aria-label={`${hero.name} snapshot`}>
-          <p className="kicker">{hero.grade}</p>
-          <h2>{hero.name}</h2>
-          <p className="muted">{hero.tagline}</p>
-          <div className="metric-row">
-            <div>
-              <span>Purity</span>
-              <b>{hero.purity}%</b>
-            </div>
-            <div>
-              <span>Supply reliability</span>
-              <b>98.4%</b>
-            </div>
-            <div>
-              <span>Private-label packing</span>
-              <b>Tin · Barrel · Tanker</b>
-            </div>
-          </div>
-          <div className="spec-mini">
-            <div>
-              <span>FFA max</span>
-              <b>{hero.ffaMax}%</b>
-            </div>
-            <div>
-              <span>Moisture</span>
-              <b>{hero.moisture}%</b>
-            </div>
-            <div>
-              <span>SG at 30°C</span>
-              <b>{hero.specificGravity30C}</b>
-            </div>
-            <div>
-              <span>From</span>
-              <b>{formatInr(hero.basePricePerLiter)} / L</b>
-            </div>
-          </div>
-          <p className="pack-line">
-            Formats: {(packs ?? []).map((item) => item?.label).filter(Boolean).join(" · ")}
-          </p>
-        </aside>
       </div>
     </section>
   );

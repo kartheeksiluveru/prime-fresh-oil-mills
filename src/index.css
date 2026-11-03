@@ -668,6 +668,25 @@ h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); max-width: 760px; }
 .site-footer a, .brand-plain { color: #ffb7b2; }
 @media (max-width: 960px) { .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .site-header { top: 8px; } .catalog-grid { grid-template-columns: 1fr; } .brand span { font-size: .68rem; } }
+.hero-carousel { padding: 0; background: #171512; }
+.hero-stage { position: relative; min-height: 650px; display: flex; align-items: center; background-size: cover; background-position: center; transition: background-image .6s ease; }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,16,11,.88) 0%, rgba(20,16,11,.62) 42%, rgba(20,16,11,.15) 100%); }
+.hero-carousel-content { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .65fr); gap: 56px; align-items: center; padding-top: 90px; padding-bottom: 90px; }
+.hero-copy h1 { max-width: 700px; color: #fff; }
+.hero-copy .lede { max-width: 580px; color: rgba(255,255,255,.88); }
+.hero-copy .kicker, .hero-card .kicker { color: #ffc266; }
+.hero-card { background: rgba(20,18,14,.48); border-color: rgba(255,255,255,.24); color: #fff; backdrop-filter: blur(18px); }
+.hero-card h2 { color: #fff; }
+.hero-card .muted { color: rgba(255,255,255,.76); }
+.metric-row-simple { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.metric-row-simple div { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); }
+.metric-row-simple span, .metric-row-simple b { color: #fff; }
+.hero-slide-count { position: absolute; z-index: 2; top: 30px; right: max(28px, calc((100% - 1120px) / 2)); color: rgba(255,255,255,.8); font: 600 .74rem/1 "Outfit", sans-serif; letter-spacing: .12em; }
+.slide-control { position: absolute; z-index: 2; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(28,25,23,.42); color: #fff; font-size: 1.5rem; backdrop-filter: blur(12px); cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.slide-control:hover { background: rgba(28,25,23,.82); transform: translateY(-50%) scale(1.05); }
+.slide-prev { left: 22px; } .slide-next { right: 22px; }
+@media (max-width: 860px) { .hero-carousel-content { grid-template-columns: 1fr; gap: 28px; padding-top: 100px; } .hero-stage { min-height: 780px; } .hero-card { max-width: 520px; } }
+@media (max-width: 520px) { .slide-control { width: 42px; height: 42px; } .slide-prev { left: 12px; } .slide-next { right: 12px; } .hero-slide-count { right: 20px; } .hero-copy h1 { font-size: 2.35rem; } }
 
 @media (max-width: 960px) {
   .hero-grid,
