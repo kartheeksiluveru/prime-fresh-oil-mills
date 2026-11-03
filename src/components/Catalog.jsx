@@ -61,7 +61,6 @@ export default function Catalog({ onOpenSpecs }) {
                   </dl>
                   <p className="price">
                     {formatInr(product.basePricePerLiter)} / L
-                    <span>MOQ {product.moqLiters ?? 500} L · SKU {product.sku}</span>
                   </p>
                   <div className="pack-pills">
                     {(packs ?? []).map((item) =>
