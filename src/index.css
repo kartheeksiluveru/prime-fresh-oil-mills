@@ -805,7 +805,7 @@ h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); max-width: 760px; }
 .contract-section { background: #fbfaf6; border-top: 1px solid var(--border); }
 .contract-head { max-width: 760px; }
 .contract-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.contract-card { min-height: 300px; padding: 30px; background: rgba(255,255,255,.76); border: 1px solid rgba(231,226,220,.8); border-top: 4px solid rgba(197,138,17,.8); border-radius: 28px; box-shadow: 0 12px 32px rgba(41,37,36,.05); backdrop-filter: blur(18px); }
+.contract-card { min-height: 250px; padding: 26px; background: rgba(255,255,255,.76); border: 1px solid rgba(231,226,220,.8); border-top: 4px solid rgba(197,138,17,.8); border-radius: 28px; box-shadow: 0 12px 32px rgba(41,37,36,.05); backdrop-filter: blur(18px); }
 .contract-card.lime { border-top-color: rgba(101,163,13,.8); } .contract-card.stone { border-top-color: rgba(120,113,108,.8); }
 .contract-card h3 { margin: 14px 0 22px; font-size: 1.7rem; }
 .contract-card ul { display: grid; gap: 12px; margin: 0 0 28px; padding-left: 18px; color: var(--muted); }
