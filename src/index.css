@@ -631,15 +631,16 @@ h1 {
 :root { --bg: #fdfcf8; --white: #fff; --slate: #292524; --forest: #166534; --amber: #c58a11; --amber-soft: #fff0ed; --border: #e7e2dc; --muted: #78716c; --radius: 18px; }
 body { background: var(--bg); font-family: "Outfit", system-ui, sans-serif; }
 body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: .12; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E"); }
-h1, h2, h3, .brand, .brand-plain { font-family: "Outfit", sans-serif; color: var(--slate); letter-spacing: -.035em; }
+h1, h2, h3, .brand, .brand-plain { font-family: "Outfit", sans-serif; color: var(--forest); letter-spacing: -.035em; }
+.lede { color: var(--forest); }
 .site-header { top: 16px; width: min(960px, calc(100% - 32px)); margin: 0 auto; background: rgba(255,255,255,.76); border: 1px solid rgba(231,226,220,.8); border-radius: 999px; box-shadow: 0 10px 30px rgba(41,37,36,.07); backdrop-filter: blur(14px); }
 .ops-bar { display: none; }
 .nav-row { min-height: 68px; padding: 0 20px; }
 .brand { flex-direction: row; align-items: center; gap: 10px; font-size: .98rem; }
 .brand img { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; }
-.brand span { font-family: inherit; font-size: .78rem; letter-spacing: .08em; color: var(--slate); text-transform: uppercase; }
+.brand span { font-family: inherit; font-size: .82rem; font-weight: 700; letter-spacing: .08em; color: var(--slate); text-transform: uppercase; }
 .nav-links a { font-size: .84rem; color: var(--muted); }
-.nav-cta, .btn-primary { background: var(--slate); color: #fff !important; border-radius: 999px; padding: 11px 18px; }
+.nav-cta, .btn-primary { background: #c87528; color: #fff !important; border-radius: 999px; padding: 11px 18px; box-shadow: inset 0 -2px 0 rgba(110, 52, 12, .16); }
 .hero { position: relative; overflow: hidden; padding: 112px 0 70px; border: 0; background: radial-gradient(circle at 12% 18%, #ffe4e1 0, transparent 28%), radial-gradient(circle at 92% 20%, #e6e6fa 0, transparent 30%), var(--bg); }
 .hero::after { content: ""; position: absolute; width: 240px; height: 240px; right: 8%; bottom: 6%; border-radius: 50%; background: #ffe4e1; opacity: .38; filter: blur(8px); animation: float 6s ease-in-out infinite; }
 @keyframes float { 50% { transform: translateY(-10px); } }

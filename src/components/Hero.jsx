@@ -14,11 +14,10 @@ export default function Hero({ onOpenSpecs }) {
     <section className="hero" id="top">
       <div className="wrap hero-grid">
         <div>
-          <p className="kicker">Flagship mill run · {hero.sku}</p>
-          <h1>{hero.name} for brands that specify purity, not blends.</h1>
+          <p className="kicker">Flagship oil</p>
+          <h1>Pure Single-Source Oils. No fillers, no blends—just uncompromised quality for your brand.</h1>
           <p className="lede">
-            Bright, dependable edible oil for FMCG companies, foodservice operators, and
-            private-label partners — with batch CoA, tin-to-tanker packing, and PAN-India dispatch from Sitapura, Jaipur.
+            Premium edible oil tailored for FMCG, foodservice, and private labels. We deliver certified purity (batch CoA) with flexible packing
           </p>
           <div className="hero-actions">
             <button
