@@ -2,8 +2,10 @@ import { COMPANY, MILL_STATS } from "../utils/oilData";
 
 export default function Capabilities() {
   return (
-    <section className="section band" id="mill">
-      <div className="wrap">
+    <section className="section band capabilities-section" id="mill">
+      <iframe className="capabilities-art" src="/seed-to-oil-illustration.html" title="Animated seed-to-oil process illustration" aria-hidden="true" tabIndex={-1} />
+      <div className="capabilities-wash" />
+      <div className="wrap capabilities-content">
         <div className="section-head">
           <div>
             <p className="kicker">{COMPANY.millCode}</p>

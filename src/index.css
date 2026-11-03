@@ -674,6 +674,17 @@ h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); max-width: 760px; }
 .site-footer a { transition: color .2s ease; }
 .site-footer a:hover { color: #ffd2ce; }
 .site-footer .fineprint { color: rgba(255,255,255,.48); }
+.capabilities-section { position: relative; overflow: hidden; min-height: 760px; background: #fdfcf8; border-block: 1px solid rgba(107,87,74,.12); }
+.capabilities-art { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; border: 0; opacity: .32; pointer-events: none; transform: scale(1.04); transform-origin: center; }
+.capabilities-wash { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(253,252,248,.96) 0%, rgba(253,252,248,.84) 38%, rgba(253,252,248,.44) 75%, rgba(253,252,248,.7) 100%); pointer-events: none; }
+.capabilities-content { position: relative; z-index: 2; }
+.capabilities-section .section-head { max-width: 820px; }
+.capabilities-section .section-head h2 { max-width: 720px; color: #154734; font-size: clamp(2.5rem, 5vw, 4.5rem); }
+.capabilities-section .section-head p:not(.kicker) { max-width: 820px; color: #675f59; font-size: 1.12rem; }
+.capabilities-section .stats { position: relative; z-index: 2; }
+.capabilities-section .stat { min-height: 160px; display: flex; flex-direction: column; justify-content: center; border-radius: 28px; background: rgba(255,255,255,.68); border: 1px solid rgba(255,255,255,.86); box-shadow: 0 22px 60px rgba(107,87,74,.12), inset 0 1px 0 rgba(255,255,255,.95); backdrop-filter: blur(18px) saturate(120%); }
+.capabilities-section .stat b { color: #16713d; font-size: clamp(2.4rem, 4vw, 3.7rem); }
+@media (max-width: 760px) { .capabilities-section { min-height: 900px; } .capabilities-art { opacity: .22; transform: scale(1.18); } .capabilities-wash { background: rgba(253,252,248,.76); } }
 @media (max-width: 960px) { .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .site-header { top: 8px; } .catalog-grid { grid-template-columns: 1fr; } .brand span { font-size: .68rem; } }
 .hero-carousel { padding: 0; background: #171512; }
