@@ -30,6 +30,13 @@ export default function Hero({ onOpenSpecs }) {
         <div className="hero-slide-count">{String(activeIndex + 1).padStart(2, "0")} / {String(SLIDE_IMAGES.length).padStart(2, "0")} CORE SKUS</div>
         <button className="slide-control slide-prev" type="button" aria-label="Previous oil" onClick={() => goTo(-1)}>←</button>
         <button className="slide-control slide-next" type="button" aria-label="Next oil" onClick={() => goTo(1)}>→</button>
+        <div className="hero-pagination" aria-label="Choose slideshow product">
+          {SLIDE_IMAGES.map((_, index) => (
+            <button className={`hero-pagination-dot ${index === activeIndex ? "active" : ""}`} key={index} type="button" aria-label={`Show slide ${index + 1}`} aria-current={index === activeIndex ? "true" : undefined} onClick={() => setActiveIndex(index)}>
+              <span key={`${activeIndex}-${index}`} />
+            </button>
+          ))}
+        </div>
         <div className="wrap hero-carousel-content">
           <div className="hero-copy">
             <p className="kicker">{product.grade}</p>
